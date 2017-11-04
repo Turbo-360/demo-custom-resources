@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+  <style type="text/css">
+  	.gray-box {
+  		text-align: left;
+  		background: #f9f9f9;
+  		margin-bottom: 24px;
+  		border: 1px solid #ddd;
+  		border-radius: 3px;
+  		padding: 12px;
+  	}
+  </style>
+</head>
+
+<body class="container">
+	<div class="row">
+
+		<div class="col-md-10 col-md-offset-1" style="text-align:center;margin-bottom:48px">
+			<h1>Welcome to Turbo</h1>
+			<hr />
+			<div class="gray-box">
+				This is a base project for demonstration puruposes. This app leverages the <a style="color:red" target="_blank" href="https://www.turbo360.co/docs#sec7a">Turbo SDK</a> to create custom objects, and update resources. Please connect this project base to one of your apps on <a style="color:red" target="_blank" href="https://www.turbo360.co">Turbo 360</a> in order to run the examples.
+			</div>
+ 
+			<h3 style="margin-top:48px">Custom Resources</h3>
+			<h4 style="color:blue">The code for the following examples is located in the "routes/custom.js" file of this project.</h4>
+			<hr />
+
+			<div class="row">
+				<div class="col-md-6 col-md-offset-0">
+					<div class="gray-box">
+						<h4>Create Object</h4>
+						<p>The following creates a custom object called "company" with the following attributes:</p>
+						<form action="/custom/createcompany" method="post">
+							<input type="text" class="form-control" name="name" placeholder="Name (apple)" /><br />
+							<input type="text" class="form-control" name="ceo" placeholder="CEO (tim cook)" /><br />
+							<input type="text" class="form-control" name="industry" placeholder="Industry (tech)" /><br />
+							<button type="submit" class="btn btn-success">Create Company</button>
+						</form>
+
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="gray-box">
+						<h4>Fetch Objects</h4>
+						<ul style="padding-left:16px">
+							<li>
+								<p>This endpoint fetches all companies currently stored in your project: <a target="blank" href="/custom/companies">CLICK HERE</a></p>
+							</li>
+							<li>
+								<p>This endpoint fetches companies with a query fileter: <a target="blank" href="/custom/companies?name=apple">CLICK HERE</a></p>
+							</li>
+							<li>
+								<p>This endpoint fetches a specific company by ID: <a target="blank" href="/custom/companies/123">CLICK HERE</a></p>
+							</li>
+						</ul>
+					</div>
+
+					<div class="gray-box">
+						<h4>Current Objects</h4>
+						<p>The following companies are currently stored in your Turbo Datastore:</p>
+						<ul style="padding-left:16px">
+							{{#companies}}
+							<li>
+								<a target="blank" href="/custom/companies/{{id}}">{{name}}</a>
+							</li>
+							{{/companies}}
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+  <!-- Turbo library imports: jQuery, Turbo CDN, sample app.js -->
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="https://cdn.turbo360-dev.com/dist/turbo.min.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script> <!-- Your app specific code -->
+</body>
+</html>
