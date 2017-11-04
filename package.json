@@ -19,7 +19,7 @@
   "functions": {
     "turbo360": "latest"
   },
-  "app": "59ea6278eb356f0012d8a438",
+  "app": "TURBO_APP_ID",
   "deploy": [
     "."
   ],
