@@ -8,7 +8,7 @@
     "build": ""
   },
   "dependencies": {
-    "turbo360": "^1.5.2",
+    "turbo360": "^1.5.5",
     "vertex360": "0.0.90"
   },
   "devDependencies": {

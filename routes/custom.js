@@ -53,21 +53,37 @@ router.get('/companies/:id', function(req, res){
 })
 
 // this endpoint updates a company speficied by ID
-router.put('/companies/:id', function(req, res){
+router.put('/:id', function(req, res){
+	turbo.updateEntity('company', req.params.id, req.body)
+	.then(data => {
+		res.json({
+			confirmation: 'success',
+			data: data
+		})
+	})
+	.catch(err => {
+		res.json({
+			confirmation: 'fail',
+			message: err.message
+		})
+	})
+})
 
-	// turbo.update('company', original, updatedParams)
-	// .then(data => {
-	// 	res.json({
-	// 		confirmation: 'success',
-	// 		company: data
-	// 	})
-	// })
-	// .catch(err => {
-	// 	res.json({
-	// 		confirmation: 'fail',
-	// 		message: err.message
-	// 	})
-	// })
+// delete entity based on ID:
+router.delete('/:id', function(req, res){
+	turbo.removeEntity('company', req.params.id, req.body)
+	.then(data => {
+		res.json({
+			confirmation: 'success',
+			data: data
+		})
+	})
+	.catch(err => {
+		res.json({
+			confirmation: 'fail',
+			message: err.message
+		})
+	})
 })
 
 

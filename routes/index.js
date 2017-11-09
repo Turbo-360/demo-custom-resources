@@ -10,33 +10,11 @@ router.get('/', function(req, res){
 
 	turbo.fetch('company', null)
 	.then(data => {
-		// console.log('Current: ' + JSON.stringify(data))
-		res.render('index', {companies: data})
+		res.render('index', {companies:data, initial:JSON.stringify(data)})
 	})
 	.catch(err => {
 		res.render('index', {text: 'This is the dynamic data. Open index.js from the routes directory to see.'})
 	})
-
-	// res.render('index', {text: 'This is the dynamic data. Open index.js from the routes directory to see.'})
-})
-
-/*  This route render json data */
-router.get('/json', function(req, res){
-	res.json({
-		confirmation: 'success',
-		app: pkg_json.app,
-		data: 'this is a sample json route.'
-	})
-})
-
-/*  This route sends text back as plain text. */
-router.get('/send', function(req, res){
-	res.send('This is the Send Route')
-})
-
-/*  This route redirects requests to Turbo360. */
-router.get('/redirect', function(req, res){
-	res.redirect('https://www.turbo360.co/landing')
 })
 
 

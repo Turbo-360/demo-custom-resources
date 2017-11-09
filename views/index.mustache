@@ -40,8 +40,8 @@
 							<input type="text" class="form-control" name="industry" placeholder="Industry (tech)" /><br />
 							<button type="submit" class="btn btn-success">Create Company</button>
 						</form>
-
 					</div>
+
 				</div>
 
 				<div class="col-md-6">
@@ -67,21 +67,35 @@
 							{{#companies}}
 							<li>
 								<a target="blank" href="/custom/companies/{{id}}">{{name}}</a>
+								<a id="btn-edit-{{id}}" style="margin-left:12px" href="#">Edit</a>
 							</li>
 							{{/companies}}
 						</ul>
-					</div>
+						<br />
 
+						<div style="display:none" id="update-box">
+							<h4>Update Object</h4>
+							<form action="/custom/createcompany" method="post">
+								<input id="update-name" type="text" class="form-control" name="name" placeholder="Name (apple)" /><br />
+								<input id="update-ceo" type="text" class="form-control" name="ceo" placeholder="CEO (tim cook)" /><br />
+								<input id="update-industry" type="text" class="form-control" name="industry" placeholder="Industry (tech)" /><br />
+								<button id="btn-update" type="submit" class="btn btn-success">Update Company</button>
+								<button id="btn-delete" type="submit" class="btn btn-danger">Delete Company</button>
+							</form>
+						</div>
+
+					</div>
 				</div>
 			</div>
 
 		</div>
 	</div>
 
+	<script type="text/javascript">window.__INITIAL__ = {{{initial}}}</script> <!-- Initial Data -->
 
-  <!-- Turbo library imports: jQuery, Turbo CDN, sample app.js -->
-  <script type="text/javascript" src="/js/jquery.js"></script>
-  <script type="text/javascript" src="https://cdn.turbo360-dev.com/dist/turbo.min.js"></script>
-  <script type="text/javascript" src="/js/app.js"></script> <!-- Your app specific code -->
+	<!-- Turbo library imports: jQuery, Turbo CDN, sample app.js -->
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="https://cdn.turbo360-dev.com/dist/turbo.min.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script> <!-- Your app specific code -->
 </body>
 </html>
